@@ -1,7 +1,8 @@
 canvas {
-  /* width: 700px;
-  height: 700px;
+  width: 900px;
+  height: 750px;
   position: relative;
   display: block;
-  margin: auto; */
+  margin: auto;
+  background-color: #ffc800;
 }

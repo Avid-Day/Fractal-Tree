@@ -7,27 +7,22 @@ const canvas = document.getElementById("canvas"),
 let MAX_DEPTH = 7; // placeholder value
 
 ctx.fillStyle = "#C0C0C0";
-ctx.translate(0.5, 0.5); // adjust by 0.5 px for clearness.
-
-//ctx.lineWidth = 10
 
 function fix_dpi() {
   let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2),
       style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
       canvas.setAttribute("height", style_height * dpi);
       canvas.setAttribute("width", style_width * dpi);
-
 }
 
 fix_dpi();
 
 function line(x, y, nx, ny, width) {
+  ctx.lineWidth = Math.pow(width, 1.4);
   ctx.beginPath();
-  ctx.lineWidth = width;
   ctx.moveTo(x, y);
   ctx.lineTo(nx, ny);
   ctx.stroke();
-  //ctx.lineWidth = 1;
 }
 
 function make_tree(x, y, angle, depth) {
@@ -40,22 +35,16 @@ function make_tree(x, y, angle, depth) {
     return;
   }
   let n_angle = angle * deg_rad_ratio;
-  let hypo = Math.floor(Math.random() * 14) + 15;
+  let hypo = Math.floor(Math.random() * 24) + 20;
   let nx = x + (Math.cos(n_angle) * (MAX_DEPTH - depth) * hypo),
       ny = y + (Math.sin(n_angle) * (MAX_DEPTH - depth) * hypo);
-  line(x, y, nx, ny, MAX_DEPTH - depth);
+  line(x, y, nx, ny, MAX_DEPTH - depth + 2);
 
   for (let i = 2; i <= 3 + Math.floor(depth / 2); i++) {
     let rotate = Math.floor(Math.random() * 20) + 10;
     if (i % 2 == 0) rotate *= -1;
     make_tree(nx, ny, angle + rotate, depth + 1);
   }
-  // make_tree(nx, ny, angle - 20, depth + 1);
-  // make_tree(nx, ny, angle + 20, depth + 1);
 }
-//ctx.beginPath();
 
-make_tree(450, 700, -90, 0);
-
-//ctx.closePath();
-//ctx.stroke();
+make_tree(Math.floor(canvas.width / 2), Math.floor(canvas.height * 0.8), -90, 0);

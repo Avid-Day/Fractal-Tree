@@ -4,7 +4,7 @@ const canvas = document.getElementById("canvas"),
       ctx = canvas.getContext("2d"),
       deg_rad_ratio = Math.PI / 180.0;
 
-canvas.width = window.innerWidth;
+canvas.width = window.innerWidth / 2;
 canvas.height = window.innerHeight;
 
 let MAX_DEPTH = 7; // placeholder value
@@ -50,4 +50,4 @@ function make_tree(x, y, angle, depth) {
   }
 }
 
-make_tree(Math.floor(canvas.width / 2), Math.floor(canvas.height * 0.8), -90, 0);
+make_tree(Math.floor(canvas.width / 2), Math.floor(canvas.height * 0.9), -90, 0);

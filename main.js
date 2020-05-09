@@ -4,7 +4,8 @@ const canvas = document.getElementById("canvas"),
       ctx = canvas.getContext("2d"),
       deg_rad_ratio = Math.PI / 180.0;
 
-canvas.height = canvas.width * 0.8;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 let MAX_DEPTH = 7; // placeholder value
 

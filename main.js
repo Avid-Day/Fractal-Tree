@@ -4,6 +4,8 @@ const canvas = document.getElementById("canvas"),
       ctx = canvas.getContext("2d"),
       deg_rad_ratio = Math.PI / 180.0;
 
+canvas.height = canvas.width * 0.8;
+
 let MAX_DEPTH = 7; // placeholder value
 
 ctx.fillStyle = "#C0C0C0";
@@ -18,7 +20,7 @@ function fix_dpi() {
 fix_dpi();
 
 function line(x, y, nx, ny, width) {
-  ctx.lineWidth = Math.pow(width, 1.4);
+  ctx.lineWidth = Math.pow(width, 1.3);
   ctx.beginPath();
   ctx.moveTo(x, y);
   ctx.lineTo(nx, ny);
@@ -41,7 +43,7 @@ function make_tree(x, y, angle, depth) {
   line(x, y, nx, ny, MAX_DEPTH - depth + 2);
 
   for (let i = 2; i <= 3 + Math.floor(depth / 2); i++) {
-    let rotate = Math.floor(Math.random() * 20) + 10;
+    let rotate = Math.floor(Math.random() * 12) + 10;
     if (i % 2 == 0) rotate *= -1;
     make_tree(nx, ny, angle + rotate, depth + 1);
   }

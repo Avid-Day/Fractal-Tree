@@ -1,8 +1,8 @@
 canvas {
-  width: 900px;
-  height: 750px;
+  width: 70%;
   position: relative;
   display: block;
   margin: auto;
+  float: right;
   background-color: #ffc800;
 }

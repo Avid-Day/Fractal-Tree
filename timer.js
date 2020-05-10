@@ -3,11 +3,17 @@ function sleep(ms) {
 }
 
 async function run_timer() {
-  for (let i = 0; i < branches.length; i++) {
-    slider.value = i;
-    update(i);
+  let ind = slider.value;
+  while (ind < branches.length) {
+    if (changePos) {
+      changePos = false;
+      ind = slider.value;
+    }
+    slider.value = ind;
+    update(ind);
+    ind++;
     await sleep(10);
   }
 }
 
-run_timer();
+//run_timer();

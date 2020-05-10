@@ -5,6 +5,8 @@ let slider = document.getElementById("myRange"),
 
 slider.max = branches.length - 1;
 
+let changePos = false;
+
 function update(val) {
   let ind = val;
   output.innerHTML = ind;
@@ -26,4 +28,9 @@ function update(val) {
 
     line(x, y, nx, ny, MAX_DEPTH - depth + 2);
   }
+}
+
+function manual_update(val) {
+  update(val);
+  changePos = true;
 }

@@ -7,9 +7,9 @@
   </head>
   <body>
     <div class="slide-container">
-      <input type="range" min="0" max="100" value="0" class="slider" id="myRange" oninput="update(this.value);">
+      <input type="range" min="0" max="100" value="0" class="slider" id="myRange" oninput="manual_update(this.value);">
       <p>Value:<span id="display-value"></span></p>
-      <button type="button" id="btn-timer">TIMER</button>
+      <button type="button" id="btn-timer" onclick="run_timer();">TIMER</button>
     </div>
     <canvas id="canvas"></canvas>
     <script src="main.js"></script>

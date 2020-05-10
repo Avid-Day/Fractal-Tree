@@ -5,8 +5,8 @@ let slider = document.getElementById("myRange"),
 
 slider.max = branches.length - 1;
 
-slider.oninput = function() {
-  let ind = this.value;
+function update(val) {
+  let ind = val;
   output.innerHTML = ind;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i <= ind; i++) {
@@ -25,6 +25,5 @@ slider.oninput = function() {
         depth = branches[i][4];
 
     line(x, y, nx, ny, MAX_DEPTH - depth + 2);
-
   }
 }

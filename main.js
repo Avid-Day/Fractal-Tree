@@ -32,10 +32,6 @@ function line(x, y, nx, ny, width) {
 
 function make_tree(x, y, angle, depth) {
   if (depth == MAX_DEPTH) {
-    // ctx.beginPath();
-    // ctx.fillStyle = "white";
-    // ctx.arc(x, y, 30 / depth, 0, 2 * Math.PI);
-    // ctx.fill();
     branches.push([x, y, depth]);
     return;
   }
@@ -43,8 +39,9 @@ function make_tree(x, y, angle, depth) {
   let hypo = Math.floor(Math.random() * 24) + 20;
   let nx = x + (Math.cos(n_angle) * (MAX_DEPTH - depth) * hypo),
       ny = y + (Math.sin(n_angle) * (MAX_DEPTH - depth) * hypo);
-  //line(x, y, nx, ny, MAX_DEPTH - depth + 2);
+
   branches.push([x, y, nx, ny, depth]);
+  
   for (let i = 2; i <= 3 + Math.floor(depth / 2); i++) {
     let rotate = Math.floor(Math.random() * 12) + 10;
     if (i % 2 == 0) rotate *= -1;

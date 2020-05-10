@@ -1,10 +1,9 @@
 let slider = document.getElementById("myRange"),
     output = document.getElementById("display-value");
 
-output.innerHTML = slider.value;
+//output.innerHTML = slider.value;
 
 slider.max = branches.length - 1;
-
 
 slider.oninput = function() {
   let ind = this.value;
@@ -29,5 +28,3 @@ slider.oninput = function() {
 
   }
 }
-
-console.log(branches.length);
